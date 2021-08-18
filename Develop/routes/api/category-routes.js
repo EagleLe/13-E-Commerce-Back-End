@@ -26,6 +26,22 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
+  Category.findOne({
+    where:{
+      id: req.params.id
+    },
+    include:{
+      model: Product,
+      attributes: ['id','product_name','price','stock','category_id']
+    }    
+  }).then(data=>{
+    if(!data){
+      res.status(404).json({message: "Required category is not found"})
+    }
+  }).catch(e =>{
+    console.error(e);
+    res.status(500).json(e)
+  })
 });
 
 router.post('/', (req, res) => {
@@ -38,6 +54,22 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
+  Category.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(data => {
+      if (!data){
+        res.status(404).json({message: 'Required category is not founds'});
+        return;
+      }
+      res.json(data);
+    })
+    .catch(e => {
+      console.error(e);
+      res.status(500).json(e);
+    });
+});
 });
 
 module.exports = router;
