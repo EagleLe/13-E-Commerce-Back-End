@@ -3,7 +3,7 @@
 In this project, we had to build the back end for an Ecommerce site. I worked with sequelized and express api to work with mySQL. I used postmand to chect the correct routes for get,post, put, and delete. I had to make sure everything was displayed correctly as a json format.
 # Walk-Through Video
 
-https://drive.google.com/file/d/1Rom7BEKQv8BoVwOdCmpWvnr5hZqmMTCj/view?usp=sharing
+https://drive.google.com/file/d/1hBs-13SZ3JtYiKJq11yraQbAPtleO5DF/view?usp=sharing
 
 # Walk-through setup 
 
